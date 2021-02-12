@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="/node/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
+</head>
+
+<body>
+    @if (IsSectionDefined("MessageBox"))
+    {
+        @RenderSection("MessageBox")
+    }
+    else
+    {
+        <div class="alert alert-success text-center m-0">
+            Genel mesaj
+        </div>
+    }
+    @await Html.PartialAsync("_navbar")
+    @* @await Html.PartialAsync("_header") *@
+
+    @RenderSection("Header",false)
+
+    <main class="my-3">
+        <div class="container">
+            @if (IsSectionDefined("Categories"))
+            {
+                <div class="row">
+                    <div class="col-md-3">
+                        @RenderSection("Categories",false)
+                    </div>
+                    <div class="col-md-9">
+                        @RenderBody()
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="row">
+                    <div class="col-md-12">
+                        @RenderBody()
+                    </div>
+                </div>
+            }
+
+        </div>
+    </main>
+
+    <footer class="py-5 bg-dark text-white text-center">
+        Shopp App | 2021
+    </footer>
+
+
+    @RenderSection("Scripts",false)
+</body>
+
+</html>

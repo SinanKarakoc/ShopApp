@@ -1,0 +1,7 @@
+@model List<CategoryEntity>
+<div class="list-group">
+    @foreach (var item in Model)// Model List<CategoryEntity>'yi temsil ediyor
+    {
+        <a href="#" class="list-group-item list-group-item-action">@item.Name</a>
+    }
+</div>

@@ -1,0 +1,41 @@
+@{
+    ViewData["Title"] = "List";
+}
+@* @{
+    Layout = "_Layout";
+} *@
+@model ProductViewModel
+
+@{
+    var products = Model.Products;
+
+}
+@section MessageBox{
+    <div class="alert alert-success text-center m-0">
+        Naber bruh?
+    </div>
+}
+ @section Scripts{
+     
+ }
+
+ @section Header{
+     @await Html.PartialAsync("_header")
+ }
+ 
+@if (Model.Products.Count == 0)
+{
+    @await Html.PartialAsync("_noproduct")
+}
+else
+{
+    <div class="row">
+
+        @foreach (var item in products)//Model.Products yerine yukarda var tanımladık onu kullandık
+        {
+            <div class="col-md-3">
+                @await Html.PartialAsync("_product",item)
+            </div>
+        }
+    </div>
+} 

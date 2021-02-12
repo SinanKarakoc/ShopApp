@@ -1,0 +1,30 @@
+ @model ProductEntity
+
+ @section Categories{
+        @await Component.InvokeAsync("Categories")
+ }
+
+<div class="card mb-3">
+    <div class="card-body">
+        <div class="row no-gutters">
+            <div class="col-md-3">
+                    <img class="card-img" src="~/images/@Model.ImageUrl" alt="">
+            </div>
+            <div class="col-md-9">
+                
+                <h5 class="card-title">
+                    @Model.Name 
+                </h5>
+                <div class="p card-text">
+                    @Model.Description
+                </div>
+                <div class="p card-text">
+                    <div class="text-muted">
+                       @Model.Price
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>    
+</div>
